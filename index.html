@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مؤتمر المويا مويا | تنفّس وعي — MOYA MOYA DISEASE CONFERENCE 2026</title>
+  <meta name="description" content="العرض التقديمي التفاعلي الرسمي لمؤتمر المويا مويا (17-10-2026) — مبادرة تنفّس وعي للتوعية بالأمراض العصبية النادرة.">
+
+  <!-- Typography: Google Fonts (Arabic & English) with offline system fallbacks -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;600;700;800;900&family=Inter:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&family=Cairo:wght@600;800;900&display=swap" rel="stylesheet">
+
+  <!-- CSS Design System -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/slides.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       LIVING BACKGROUND LAYERS
+       ======================================================================== -->
+  <canvas id="particles-canvas" class="canvas-bg-layer"></canvas>
+  <div class="gradient-mesh-layer"></div>
+  <div id="vascular-svg-bg" class="vascular-svg-layer"></div>
+
+  <!-- Custom Cursor -->
+  <div id="custom-cursor" class="custom-cursor"></div>
+  <div id="custom-cursor-follower" class="custom-cursor-follower"></div>
+
+  <!-- Spotlight Layer (L Key) -->
+  <div id="spotlight-overlay" class="spotlight-overlay"></div>
+
+  <!-- Laser Pointer Dot (R Key) -->
+  <div id="laser-pointer" class="laser-pointer"></div>
+
+  <!-- Floating Corner Brand Badge -->
+  <div class="brand-top-hud" id="brand-top-hud">
+    <img src="assets/logo-tanaffas-waai.svg" alt="تنفّس وعي" class="brand-hud-logo" onerror="this.src='assets/logo-tanaffas-waai.png'">
+    <span class="brand-hud-text">
+      مؤتمر المويا مويا
+      <span class="brand-hud-date">17.10.2026</span>
+    </span>
+  </div>
+
+  <!-- Audio Atmosphere Badge (أجواء المؤتمر الصوتية الحية) -->
+  <div class="audio-atmosphere-badge" id="audio-atmosphere-badge" title="تشغيل / كتم الأجواء الصوتية (اضغط A)">
+    <div class="audio-eq-bars">
+      <span class="bar bar-1"></span>
+      <span class="bar bar-2"></span>
+      <span class="bar bar-3"></span>
+    </div>
+    <span class="audio-badge-text">الأجواء الصوتية: مفعّلة</span>
+  </div>
+
+  <!-- ========================================================================
+       PRELOADER / INTRO SCREEN
+       ======================================================================== -->
+  <div id="preloader-screen" class="preloader-screen">
+    <div class="preloader-logo-wrap">
+      <div class="preloader-vascular-ring"></div>
+      <img src="assets/logo-tanaffas-waai.svg" alt="شعار تنفّس وعي" style="width: 130px; height: auto;" onerror="this.src='assets/logo-tanaffas-waai.png'">
+    </div>
+    <div id="preloader-status-text" class="preloader-text-status">نجهّز الحكاية…</div>
+    <button id="preloader-enter-btn" class="preloader-enter-btn">
+      <span>بدء العرض التقديمي بملء الشاشة</span>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div id="preloader-enter-hint" class="preloader-enter-hint">اضغط Enter أو Space للبدء المباشر</div>
+  </div>
+
+  <!-- ========================================================================
+       MASTER PRESENTATION DECK (14 SLIDES)
+       ======================================================================== -->
+  <main class="presentation-viewport" id="presentation-deck">
+
+    <!-- ====================================================================
+         SLIDE 1: Title / Opening
+         ==================================================================== -->
+    <section class="slide active" id="slide-1" data-notes="اللي شفتوه قبل لحظات هو بالضبط السبب اللي خلى تنفّس وعي تبدأ. أهلاً بكم جميعاً في مؤتمر المويا مويا.">
+      <div class="safe-area">
+        <div class="slide1-logo-container">
+          <div class="slide1-vascular-halo"></div>
+          <img src="assets/logo-tanaffas-waai.svg" alt="تنفّس وعي" class="slide1-logo-img" onerror="this.src='assets/logo-tanaffas-waai.png'">
+        </div>
+
+        <h1 class="slide1-title">تنفّس وعي</h1>
+
+        <div class="slide1-subtitle-box">
+          <p class="slide1-line1">لأن مرضًا نادرًا…</p>
+          <p class="slide1-line2 glow-cyan-text">يستحق صوتًا أكبر.</p>
+        </div>
+
+        <div class="slide1-event-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#18A6B7" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>مؤتمر المويا مويا | 17.10.2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 2: لماذا بدأنا؟ (Why we started?)
+         ==================================================================== -->
+    <section class="slide" id="slide-2" data-notes="بدأنا من اللحظة الأكثر صعوبة: لما يسمع المريض أو أهله الكلمة لأول مرة وما يلقاش إجابة تطمّنه بلغة يفهمها.">
+      <!-- Floating question marks background -->
+      <div class="slide2-bg-questions">
+        <span style="position: absolute; top: 10%; right: 15%;">?</span>
+        <span style="position: absolute; top: 35%; right: 45%;">؟</span>
+        <span style="position: absolute; top: 20%; left: 20%;">?</span>
+        <span style="position: absolute; bottom: 25%; right: 25%;">؟</span>
+        <span style="position: absolute; bottom: 15%; left: 35%;">?</span>
+      </div>
+
+      <div class="safe-area">
+        <span class="slide2-intro-title">بدأنا من سؤال بسيط…</span>
+        <h2 class="slide2-main-question">
+          «كم شخص يسمع كلمة <span class="accent-cyan-word">Moyamoya</span> لأول مرة
+          بعد أن يُصاب بها شخصٌ يحبه؟»
+        </h2>
+
+        <div class="slide2-items-grid">
+          <div class="slide2-card" id="slide2-card-1">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#148BD1" stroke-width="2" style="margin: 0 auto 14px;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div style="font-weight: 800; font-size: 19px; color: #FFFFFF; margin-bottom: 6px;">مرض نادر</div>
+            <div style="font-size: 14px; color: var(--light-cyan); opacity: 0.85; line-height: 1.4;">تحديات تشخيصية تفتقر للدعم والتوعية</div>
+          </div>
+          <div class="slide2-card" id="slide2-card-2">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#18A6B7" stroke-width="2" style="margin: 0 auto 14px;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            <div style="font-weight: 800; font-size: 19px; color: #FFFFFF; margin-bottom: 6px;">محتوى عربي محدود</div>
+            <div style="font-size: 14px; color: var(--light-cyan); opacity: 0.85; line-height: 1.4;">ندرة المراجع الموثوقة بلغة تفهمها الأسرة</div>
+          </div>
+          <div class="slide2-card" id="slide2-card-3">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#E52532" stroke-width="2" style="margin: 0 auto 14px;"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <div style="font-weight: 800; font-size: 19px; color: #FFFFFF; margin-bottom: 6px;">أسئلة كثيرة بعد التشخيص</div>
+            <div style="font-size: 14px; color: var(--light-cyan); opacity: 0.85; line-height: 1.4;">حيرة وقلق حول كيفية التعايش اليومي</div>
+          </div>
+        </div>
+
+        <div class="slide2-conclusion">
+          «ومن هنا… انطلقت تنفّس وعي.»
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 3: فلسفة المبادرة (Philosophy)
+         ==================================================================== -->
+    <section class="slide" id="slide-3" data-notes="التعريفات الطبية مهمة للأطباء، لكن الأسرة والمريض يحتاجون إجابات للحياة اليومية: كيف ينام؟ كيف يسافر؟ كيف يدرس؟">
+      <div class="slide3-orbit-words">
+        <span class="slide3-tag tag-pos-1 float-slow-1">المدرسة</span>
+        <span class="slide3-tag tag-pos-2 float-slow-2">السفر</span>
+        <span class="slide3-tag tag-pos-3 float-slow-1">الجامعة</span>
+        <span class="slide3-tag tag-pos-4 float-slow-2">الأسرة</span>
+        <span class="slide3-tag tag-pos-5 float-slow-1">العمل</span>
+        <span class="slide3-tag tag-pos-6 float-slow-2">المستقبل</span>
+        <span class="slide3-tag tag-pos-7 float-slow-1">النوم</span>
+        <span class="slide3-tag tag-pos-8 float-slow-2">الرياضة</span>
+      </div>
+
+      <div class="safe-area">
+        <p class="slide3-pre-title">ما كان هدفنا نشر تعريف جديد للمرض.</p>
+
+        <div class="slide3-strike-list">
+          <div class="slide3-strike-item" id="strike-1">ما هو Moyamoya؟</div>
+          <div class="slide3-strike-item" id="strike-2">ما هي أعراضه؟</div>
+          <div class="slide3-strike-item" id="strike-3">ما أسبابه؟</div>
+        </div>
+
+        <div class="slide3-big-question-wrap">
+          <h2 class="slide3-big-question">
+            «لكن…<br>كيف يعيش الإنسان مع <span class="accent-cyan-word">Moyamoya</span>؟»
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 4: مويا في الحياة (Moya in Life)
+         ==================================================================== -->
+    <section class="slide" id="slide-4" data-notes="هذه السلسلة كانت الأكثر وصولاً وأثراً، لأنها دخلت لأول مرة بيوت المرضى ومدارسهم وجامعاتهم.">
+      <div class="safe-area">
+        <div class="slide4-header">
+          <h2 class="slide-title-main">Moyamoya لا تبقى داخل المستشفى.</h2>
+          <p class="slide-subtitle">إرشادات وأدلة عملية تصاحب المريض في كل تفاصيل يومه</p>
+        </div>
+
+        <div class="slide4-cards-row" id="slide4-cards-container">
+          <!-- Populated dynamically via config.js -->
+        </div>
+
+        <div class="slide4-footer">
+          <p style="font-size: var(--text-body); color: var(--light-cyan); margin-bottom: 6px;">وهكذا وُلدت سلسلة:</p>
+          <div class="slide4-hashtag">
+            #مويا_في_الحياة
+            <svg style="position: absolute; bottom: -8px; right: 0; width: 100%; height: 8px;" viewBox="0 0 200 8">
+              <path class="handwriting-line" d="M 0 4 Q 100 8 200 4" stroke="#18A6B7" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 5: WOW MOMENT (Cinematic & Human Split)
+         ==================================================================== -->
+    <section class="slide" id="slide-5" data-notes="الأشعة ترى تضيق الشرايين، لكنها لا ترى قلق الأم ولا طموح الشاب ولا خوف الطالب في قاعة الامتحان. نحن نرى الإنسان.">
+      <div class="safe-area">
+        <div class="slide5-top-text">
+          <h2 class="slide-title-main">الأشعة ترى الأوعية…</h2>
+        </div>
+
+        <div class="slide5-interactive-container">
+          <!-- Right side: MRI angiography -->
+          <div class="slide5-split-side slide5-mri-side">
+            <div class="slide5-visual-wrapper">
+              <img src="assets/research/mri-scan.svg" alt="MRI Angiography Brain Scan" class="slide5-mri-graphic">
+            </div>
+          </div>
+
+          <!-- Left side: Human life elements -->
+          <div class="slide5-split-side slide5-human-side">
+            <h3 style="color: var(--cyan); margin-bottom: 24px; font-size: var(--text-h3);">لكنها لا ترى الحياة كلها.</h3>
+            <div class="slide5-human-collage">
+              <div class="slide5-human-chip">القلق</div>
+              <div class="slide5-human-chip">الدراسة</div>
+              <div class="slide5-human-chip">العائلة</div>
+              <div class="slide5-human-chip">المستقبل</div>
+              <div class="slide5-human-chip" style="grid-column: span 2; border-color: var(--cyan); background: rgba(20,139,209,0.25);">العودة للحياة</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide5-bottom-revelation">
+          <h2 class="slide5-climax-statement">
+            «نحن لا نتحدث عن المرض فقط…<br>
+            نحن نتحدث عن <span class="accent-cyan-word">الإنسان</span> الذي يعيش معه.»
+          </h2>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 6: منظومة المحتوى (Content Ecosystem)
+         ==================================================================== -->
+    <section class="slide" id="slide-6" data-notes="انتقلنا من مجرد منشورات توعوية مبعثرة إلى 5 مسارات محتوى استراتيجية، مدروسة طبيًا وإنسانيًا.">
+      <div class="safe-area">
+        <div style="text-align: center; margin-bottom: 10px;">
+          <h2 class="slide-title-main">من مبادرة توعوية… إلى منظومة محتوى.</h2>
+          <p class="slide-subtitle">خمسة مسارات متكاملة تبني الفهم خطوة بخطوة</p>
+        </div>
+
+        <div class="slide6-center-orbit-system">
+          <div class="slide6-orbit-ring"></div>
+
+          <!-- Center Hub -->
+          <div class="slide6-center-hub">
+            <img src="assets/logo-tanaffas-waai.svg" alt="تنفّس وعي" onerror="this.src='assets/logo-tanaffas-waai.png'">
+            <span style="font-weight: 800; font-size: 14px; color: var(--white);">تنفّس وعي</span>
+          </div>
+
+          <!-- 5 Circular Nodes -->
+          <div class="slide6-node node-pos-1">
+            <div class="slide6-node-title">مويا في الحياة</div>
+            <div class="slide6-node-desc">الحياة اليومية مع Moyamoya</div>
+          </div>
+
+          <div class="slide6-node node-pos-2">
+            <div class="slide6-node-title">MOYA LAB</div>
+            <div class="slide6-node-desc">تبسيط الدراسات والأبحاث الحديثة</div>
+          </div>
+
+          <div class="slide6-node node-pos-3">
+            <div class="slide6-node-title">مويا بالأرقام</div>
+            <div class="slide6-node-desc">الأرقام والدراسات بلغة بصرية</div>
+          </div>
+
+          <div class="slide6-node node-pos-4">
+            <div class="slide6-node-title">قرار مويا</div>
+            <div class="slide6-node-desc">لماذا تختلف القرارات الطبية بين المرضى؟</div>
+          </div>
+
+          <div class="slide6-node node-pos-5">
+            <div class="slide6-node-title">صوت مويا</div>
+            <div class="slide6-node-desc">الجانب الإنساني وتجربة المريض والأسرة</div>
+            <span class="badge-soon">قريبًا</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 7: رحلة المبادرة (Journey Timeline)
+         ==================================================================== -->
+    <section class="slide" id="slide-7" data-notes="ست محطات رئيسية؛ من الفكرة الأولى والبحث، إلى النزول للميدان، وصولاً إلى هذا المؤتمر.">
+      <div class="safe-area">
+        <div style="text-align: center;">
+          <h2 class="slide-title-main">كل خطوة أوصلتنا لليوم.</h2>
+          <p class="slide-subtitle">مسيرة متدرجة بُنيت بالجهد والشغف العلمي والإنساني</p>
+        </div>
+
+        <div class="slide7-timeline-track-wrap">
+          <div class="slide7-timeline-line"></div>
+          <div class="slide7-milestones-row" id="slide7-milestones-row">
+            <!-- Populated via config.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 8: الأثر بالأرقام (Impact in Numbers)
+         ==================================================================== -->
+    <section class="slide" id="slide-8" data-notes="الأرقام في تنفّس وعي حقيقية وتُقاس بحرص؛ نرفض تضخيم البيانات لأن المصداقية هي رأس مالنا الطبي.">
+      <div class="safe-area">
+        <h2 class="slide-title-main">الأثر لا يُحكى فقط… يُقاس.</h2>
+        <p class="slide-subtitle">مؤشرات الأثر المجتمعي والتطوعي المعتمدة</p>
+
+        <div class="slide8-stats-grid" id="slide8-stats-container">
+          <!-- Populated strictly via config.impact (null items strictly hidden) -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 9: الفريق (The Team)
+         ==================================================================== -->
+    <section class="slide" id="slide-9" data-notes="هذا المشروع لم يصنعه فرد واحد؛ صنعه فريق متكامل من الأطباء والمصممين والمتطوعين الذين سخّروا وقتهم لصناعة الأمل.">
+      <div class="safe-area">
+        <div style="text-align: center;">
+          <h2 class="slide-title-main">خلف كل فكرة… إنسان.</h2>
+          <p class="slide-subtitle">وخلف كل خطوة… فريقٌ يؤمن بأن الوعي يصنع الفرق وينقذ حياة.</p>
+        </div>
+
+        <div class="slide9-mosaic-container">
+          <div class="slide9-mosaic-item" onclick="window.deckNav.presenter.openLightbox('assets/team/team-1.svg', 'فريق صناعة المحتوى الطبي')">
+            <img src="assets/team/team-1.svg" alt="فريق صناعة المحتوى">
+          </div>
+          <div class="slide9-mosaic-item" onclick="window.deckNav.presenter.openLightbox('assets/team/team-2.svg', 'فريق التصميم والهوية البصرية')">
+            <img src="assets/team/team-2.svg" alt="فريق التصميم">
+          </div>
+          <div class="slide9-mosaic-item" onclick="window.deckNav.presenter.openLightbox('assets/team/team-3.svg', 'الفريق الطبي والاستشاري')">
+            <img src="assets/team/team-3.svg" alt="الفريق الطبي">
+          </div>
+          <div class="slide9-mosaic-item" onclick="window.deckNav.presenter.openLightbox('assets/team/team-4.svg', 'منسقو الأنشطة الميدانية')">
+            <img src="assets/team/team-4.svg" alt="الأنشطة الميدانية">
+          </div>
+          <div class="slide9-mosaic-item" onclick="window.deckNav.presenter.openLightbox('assets/team/team-5.svg', 'فريق التواصل والإعلام')">
+            <img src="assets/team/team-5.svg" alt="التواصل والإعلام">
+          </div>
+          <div class="slide9-mosaic-item" onclick="window.deckNav.presenter.openLightbox('assets/team/team-6.svg', 'فريق البحث والترجمة')">
+            <img src="assets/team/team-6.svg" alt="فريق الترجمة">
+          </div>
+          <div class="slide9-mosaic-item" onclick="window.deckNav.presenter.openLightbox('assets/team/team-7.svg', 'فريق إدارة المتطوعين')">
+            <img src="assets/team/team-7.svg" alt="إدارة المتطوعين">
+          </div>
+          <div class="slide9-mosaic-item" onclick="window.deckNav.presenter.openLightbox('assets/team/team-8.svg', 'لجنة تنظيم المؤتمر')">
+            <img src="assets/team/team-8.svg" alt="لجنة التنظيم">
+          </div>
+
+          <!-- Center Quote Overlay Box -->
+          <div class="slide9-center-quote-box">
+            <div class="slide9-center-quote-main">
+              «تنفّس وعي لم يصنعها شخصٌ واحد.»
+            </div>
+            <div class="slide9-center-quote-sub">
+              صنعها فريقٌ آمن بأن الوعي قادرٌ على تغيير مسار الحياة وصناعة الأمل.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 10: لماذا المؤتمر؟ (Why the Conference?)
+         ==================================================================== -->
+    <section class="slide" id="slide-10" data-notes="لماذا اجتمعنا اليوم في مصراتة؟ ليس لنلقي كلمات وننصرف، بل لنفتح باب حوار طبي ومجتمعي مستدام.">
+      <div class="safe-area">
+        <h2 class="slide-title-main">ولماذا نجتمع اليوم؟</h2>
+
+        <div class="slide10-compass-grid">
+          <div class="slide10-central-badge">مؤتمر المويا مويا</div>
+
+          <div class="slide10-quadrant">
+            <h3 class="slide10-quadrant-title">01 • نجمع المعرفة</h3>
+            <p class="slide10-quadrant-desc">توحيد المراجع الطبية وأحدث الأبحاث العالمية تحت مظلة عربية متخصصة.</p>
+          </div>
+
+          <div class="slide10-quadrant">
+            <h3 class="slide10-quadrant-title">02 • نقرّب المعلومة</h3>
+            <p class="slide10-quadrant-desc">ترجمة المصطلحات المعقدة إلى لغة يفهمها المريض وتطمئن بها أسرته.</p>
+          </div>
+
+          <div class="slide10-quadrant">
+            <h3 class="slide10-quadrant-title">03 • نفتح الحوار</h3>
+            <p class="slide10-quadrant-desc">خلق مساحة مباشرة بين الكوادر الطبية والمجتمع لتبادل الرؤى والتجارب.</p>
+          </div>
+
+          <div class="slide10-quadrant">
+            <h3 class="slide10-quadrant-title">04 • نبني ما بعد المؤتمر</h3>
+            <p class="slide10-quadrant-desc">وضع خطة عمل متكاملة للمنصة الرقمية والمكتبة التخصصية القادمة.</p>
+          </div>
+        </div>
+
+        <div class="slide10-final-impact">
+          «هذا المؤتمر محطة متجددة… <span class="slide10-punch-word">وليست النهاية.</span>»
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 11: شركاء الأثر (Partners of Impact)
+         ==================================================================== -->
+    <section class="slide" id="slide-11" data-notes="كل الامتنان للشركاء والرعاة المعتمدين الذين ساهموا في إنجاح هذا الحدث الطبي النوعي.">
+      <div class="safe-area">
+        <h2 class="slide-title-main">لم نصل وحدنا.</h2>
+        <p class="slide-subtitle">شركاء اختاروا أن يكونوا جزءًا من الأثر ودعم التوعية بالأمراض النادرة</p>
+
+        <div class="slide11-sponsors-grid" id="slide11-sponsors-grid">
+          <!-- Populated from config.sponsors strictly -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 12: ماذا بعد المؤتمر؟ (What's After the Conference?)
+         ==================================================================== -->
+    <section class="slide" id="slide-12" data-notes="الرؤية المستقبلية واضحة: استمرار السلاسل، تفعيل مويا لاب، وإطلاق المنصة الرقمية الشاملة.">
+      <div class="safe-area">
+        <div style="text-align: center;">
+          <h2 class="slide-title-main">17 أكتوبر… ليست نهاية الرحلة.</h2>
+          <p class="slide-subtitle">بل انطلاقة مستدامة لخارطة طريق نوعية لما بعد المؤتمر</p>
+        </div>
+
+        <div class="slide12-roadmap-row">
+          <div class="slide12-roadmap-step active-step">
+            <div class="slide12-step-num">01</div>
+            <div class="slide12-step-title">استمرار مويا في الحياة</div>
+          </div>
+          <div class="slide12-roadmap-step active-step">
+            <div class="slide12-step-num">02</div>
+            <div class="slide12-step-title">إطلاق MOYA LAB</div>
+          </div>
+          <div class="slide12-roadmap-step active-step">
+            <div class="slide12-step-num">03</div>
+            <div class="slide12-step-title">بناء المكتبة الرقمية</div>
+          </div>
+          <div class="slide12-roadmap-step active-step">
+            <div class="slide12-step-num">04</div>
+            <div class="slide12-step-title">منصة تنفّس وعي الرقمية</div>
+          </div>
+        </div>
+
+        <!-- Laptop Browser Mockup -->
+        <div class="slide12-laptop-mockup-wrapper revealed">
+          <div class="browser-mockup">
+            <div class="browser-header">
+              <div class="browser-dots">
+                <div class="browser-dot" style="background: #E52532;"></div>
+                <div class="browser-dot" style="background: #18A6B7;"></div>
+                <div class="browser-dot" style="background: #148BD1;"></div>
+              </div>
+              <div class="browser-address-bar">https://tanaffaswaai.org/moyamoya-platform</div>
+            </div>
+            <div class="browser-viewport-screen">
+              <div class="browser-shimmer-bar"></div>
+              <img src="assets/logo-tanaffas-waai.svg" alt="Tanaffas Waai Platform" style="width: 140px; height: auto;" onerror="this.src='assets/logo-tanaffas-waai.png'">
+              <div class="browser-platform-title">Tanaffas Waai Digital Platform</div>
+              <span class="badge-soon" style="font-size: 14px; padding: 4px 16px;">قريبًا</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 13: الرؤية (The Vision)
+         ==================================================================== -->
+    <section class="slide" id="slide-13" data-notes="رسالتنا الكبرى لكل مريض وأسرة في العالم العربي: لن تكونوا وحدكم في هذه الرحلة.">
+      <div class="safe-area">
+        <h2 class="slide-title-main" style="color: var(--cyan);">رؤيتنا أكبر من حملة.</h2>
+
+        <p class="slide13-vision-text">
+          أن يصبح لدى المريض العربي وأسرته مكان واحد يجدون فيه معلومة موثوقة، لغة يفهمونها، ومحتوى يرى الإنسان قبل المرض.
+        </p>
+
+        <div class="slide13-centerpiece">
+          مرجع عربي متخصص في Moyamoya.
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SLIDE 14: النهاية (Finale / Closing)
+         ==================================================================== -->
+    <section class="slide" id="slide-14" data-notes="شكرًا لكل الحضور ولكل من ساهم وساند. معًا نواصل صناعة الأمل.">
+      <div class="slide14-montage-container"></div>
+
+      <div class="safe-area">
+        <div class="slide14-finale-content">
+          <p class="slide14-prelude">هذه ليست نهاية الحكاية.</p>
+
+          <div class="slide14-logo-wrap">
+            <img src="assets/logo-tanaffas-waai.svg" alt="تنفّس وعي" class="slide14-logo-img" onerror="this.src='assets/logo-tanaffas-waai.png'">
+            <div class="slide14-glowing-sweep-line"></div>
+          </div>
+
+          <h2 class="slide14-motto">
+            نفهم المرض… <span class="accent-cyan-word">ونفهم الحياة معه.</span>
+          </h2>
+
+          <p class="slide14-hope-tag">تنفّس وعي | نحن صُنّاع الأمل</p>
+
+          <p class="slide14-thankyou">شكرًا لأنكم جزء من الرحلة.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       NAVIGATION HUD (01 ━━━━ 14 & Controls)
+       ======================================================================== -->
+  <nav class="nav-hud" id="nav-hud" aria-label="شريط التنقل">
+    <div class="nav-progress-wrapper">
+      <span class="slide-number-indicator" id="slide-number-indicator">01 ━━━━ 14</span>
+      <div class="nav-progress-track" id="nav-progress-track">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+
+    <div class="nav-actions">
+      <!-- Fullscreen Button -->
+      <button class="nav-btn" id="btn-fullscreen" title="ملء الشاشة (F)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+      </button>
+
+      <!-- Overview Grid Button -->
+      <button class="nav-btn" id="btn-overview" title="نظرة عامة على السلايدات (Esc)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      </button>
+
+      <!-- Speaker Notes Button -->
+      <button class="nav-btn" id="btn-notes" title="ملاحظات المتحدث (S)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </button>
+
+      <!-- Spotlight Mode Button -->
+      <button class="nav-btn" id="btn-spotlight" title="إضاءة موضعية Spotlight (L)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+
+      <!-- Laser Pointer Button -->
+      <button class="nav-btn" id="btn-laser" title="مؤشر الليزر Laser (R)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg>
+      </button>
+
+      <!-- Audio Button -->
+      <button class="nav-btn" id="btn-audio" title="الصوت التفاعلي (A)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       SPEAKER NOTES MODAL (Key 'S')
+       ======================================================================== -->
+  <aside class="notes-panel" id="speaker-notes-panel">
+    <div class="notes-header">
+      <div class="notes-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+        <span>ملاحظات المتحدث</span>
+      </div>
+      <div class="presentation-timer" id="presentation-timer-display">00:00</div>
+    </div>
+    <div class="notes-content">
+      جاري تحميل الملاحظات…
+    </div>
+    <div class="notes-next-preview">
+      السلايد التالية: —
+    </div>
+  </aside>
+
+  <!-- ========================================================================
+       OVERVIEW GRID MODAL (Key 'Esc')
+       ======================================================================== -->
+  <div class="overview-grid-container" id="overview-modal">
+    <div class="overview-header">
+      <h3>فهرس السلايدات — اختر سلايد للانتقال السريع</h3>
+      <button class="nav-btn" onclick="window.deckNav.presenter.toggleOverview()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="overview-grid">
+      <!-- Generated dynamically -->
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       LIGHTBOX MODAL (Image Preview)
+       ======================================================================== -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <div class="lightbox-content">
+      <button class="lightbox-close-btn" onclick="window.deckNav.presenter.closeLightbox()">&times;</button>
+      <img src="" alt="معاينة الصورة">
+      <div class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       KEYBOARD SHORTCUTS MODAL (Key 'M' or '?')
+       ======================================================================== -->
+  <div class="shortcuts-modal" id="shortcuts-modal">
+    <div class="shortcuts-card">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3 style="font-size: var(--text-h3); color: var(--cyan);">اختصارات لوحة التحكم</h3>
+        <button class="nav-btn" onclick="window.deckNav.presenter.toggleShortcutsModal()">&times;</button>
+      </div>
+      <table class="shortcuts-table">
+        <tr>
+          <td><span class="shortcut-key">Right</span> / <span class="shortcut-key">Space</span> / <span class="shortcut-key">Enter</span></td>
+          <td>الانتقال للسلايد / الخطوة التالية</td>
+        </tr>
+        <tr>
+          <td><span class="shortcut-key">Left</span> / <span class="shortcut-key">Up</span></td>
+          <td>السلايد / الخطوة السابقة</td>
+        </tr>
+        <tr>
+          <td><span class="shortcut-key">F</span></td>
+          <td>تفعيل / إلغاء ملء الشاشة (Fullscreen)</td>
+        </tr>
+        <tr>
+          <td><span class="shortcut-key">Esc</span></td>
+          <td>وضع استعراض كافة السلايدات (Overview)</td>
+        </tr>
+        <tr>
+          <td><span class="shortcut-key">S</span></td>
+          <td>إظهار / إخفاء ملاحظات المتحدث والوقت</td>
+        </tr>
+        <tr>
+          <td><span class="shortcut-key">L</span></td>
+          <td>تفعيل تسليط الضوء الموضعي (Spotlight)</td>
+        </tr>
+        <tr>
+          <td><span class="shortcut-key">R</span></td>
+          <td>مؤشر الليزر التفاعلي (Laser Pointer)</td>
+        </tr>
+        <tr>
+          <td><span class="shortcut-key">0</span></td>
+          <td>وضع التركيز الكامل (إخفاء كافة القوائم)</td>
+        </tr>
+        <tr>
+          <td><span class="shortcut-key">A</span></td>
+          <td>تشغيل / كتم المؤثرات الصوتية</td>
+        </tr>
+        <tr>
+          <td><span class="shortcut-key">P</span></td>
+          <td>إيقاف / استئناف حركة الجزيئات</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       SCRIPTS
+       ======================================================================== -->
+  <script src="js/config.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/presenter.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/presentation.js"></script>
+</body>
+</html>

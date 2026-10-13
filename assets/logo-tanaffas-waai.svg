@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 240" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gradBrand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#148BD1" />
+      <stop offset="60%" stop-color="#18A6B7" />
+      <stop offset="100%" stop-color="#0757A6" />
+    </linearGradient>
+    <filter id="glowEmblem" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Emblem Icon: Lungs/Brain vascular fusion with heart center -->
+  <g transform="translate(60, 40)" filter="url(#glowEmblem)">
+    <!-- Right wing / Lung-Brain vascular branch -->
+    <path d="M 60 75 C 60 25, 10 15, -20 40 C -50 65, -45 115, -15 135 C 10 150, 45 135, 60 75 Z" 
+          fill="none" stroke="url(#gradBrand)" stroke-width="6" stroke-linecap="round" />
+    <!-- Left wing / Lung-Brain vascular branch -->
+    <path d="M 60 75 C 60 25, 110 15, 140 40 C 170 65, 165 115, 135 135 C 110 150, 75 135, 60 75 Z" 
+          fill="none" stroke="url(#gradBrand)" stroke-width="6" stroke-linecap="round" />
+    <!-- Fine vascular internal filaments -->
+    <path d="M 60 75 Q 30 50 10 65 Q -10 80 -25 70" fill="none" stroke="#DDF5FA" stroke-width="2.5" opacity="0.8" />
+    <path d="M 60 75 Q 90 50 110 65 Q 130 80 145 70" fill="none" stroke="#DDF5FA" stroke-width="2.5" opacity="0.8" />
+    
+    <!-- Central Red Heart Accent (Strictly adheres to brand guidelines) -->
+    <path d="M 60 85 C 50 72, 35 78, 35 90 C 35 106, 60 120, 60 120 C 60 120, 85 106, 85 90 C 85 78, 70 72, 60 85 Z" 
+          fill="#E52532" filter="drop-shadow(0 0 10px rgba(229,37,50,0.8))" />
+  </g>
+
+  <!-- Arabic Typography -->
+  <g transform="translate(260, 110)">
+    <text x="0" y="0" font-family="'IBM Plex Sans Arabic', 'Tajawal', 'Cairo', sans-serif" font-size="64" font-weight="900" fill="#FFFFFF" letter-spacing="-1">تنفّس وعي</text>
+    <text x="0" y="44" font-family="'Inter', sans-serif" font-size="22" font-weight="600" fill="#18A6B7" letter-spacing="4">TANAFFAS WAAI</text>
+    <text x="0" y="74" font-family="'IBM Plex Sans Arabic', sans-serif" font-size="16" font-weight="400" fill="#DDF5FA" opacity="0.85">مبادرة التوعية بالأمراض العصبية النادرة</text>
+  </g>
+</svg>

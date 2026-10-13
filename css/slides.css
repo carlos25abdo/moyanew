@@ -1,0 +1,1486 @@
+/* ==========================================================================
+   Slide Layouts & Specialized Views (Slides 1 to 14)
+   ========================================================================== */
+
+/* Slide Base Container */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.03);
+  filter: blur(8px);
+  transition: opacity var(--trans-cinematic), transform var(--trans-cinematic), filter var(--trans-cinematic), visibility var(--trans-cinematic);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: scale(1);
+  filter: blur(0);
+  z-index: 5;
+}
+
+.slide.previous {
+  transform: scale(0.97) translateY(-10px);
+  opacity: 0;
+  filter: blur(6px);
+}
+
+/* Common Typography & Layout Utilities */
+.slide-title-main {
+  font-size: var(--text-h1);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 20px;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.slide-subtitle {
+  font-size: var(--text-h3);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--light-cyan);
+  margin-bottom: 30px;
+}
+
+.accent-red-word {
+  color: var(--red);
+  position: relative;
+  display: inline-block;
+}
+
+.accent-cyan-word {
+  color: var(--cyan);
+  text-shadow: 0 0 20px rgba(24, 166, 183, 0.6);
+}
+
+/* ==========================================================================
+   SLIDE 1: Title / Opening
+   ========================================================================== */
+#slide-1 .safe-area {
+  text-align: center;
+  gap: 28px;
+}
+
+.slide1-logo-container {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide1-vascular-halo {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(20, 139, 209, 0.25) 0%, rgba(24, 166, 183, 0.1) 40%, transparent 70%);
+  animation: orbitPulse 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.slide1-logo-img {
+  width: 220px;
+  height: auto;
+  filter: drop-shadow(0 15px 35px rgba(2, 18, 39, 0.7));
+  z-index: 2;
+}
+
+.slide1-title {
+  font-size: clamp(64px, 8vw, 130px);
+  font-weight: 900;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, #FFFFFF 30%, var(--light-cyan) 80%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.slide1-subtitle-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.slide1-line1 {
+  font-size: var(--text-h2);
+  color: var(--light-cyan);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease 0.4s;
+}
+
+.slide1-line2 {
+  font-size: var(--text-h2);
+  color: var(--cyan);
+  font-weight: 800;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease 0.9s;
+}
+
+.slide.active .slide1-line1,
+.slide.active .slide1-line2 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide1-event-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 24px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-caption);
+  color: var(--light-cyan);
+  margin-top: 10px;
+}
+
+/* ==========================================================================
+   SLIDE 2: لماذا بدأنا؟ (Why we started?)
+   ========================================================================== */
+#slide-2 .safe-area {
+  max-width: 1400px;
+  width: 90vw;
+  text-align: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.slide2-intro-title {
+  font-size: var(--text-h3);
+  color: var(--cyan);
+  margin-bottom: 8px;
+}
+
+.slide2-main-question {
+  font-size: clamp(32px, 3.8vw, 68px);
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--white);
+  max-width: 1100px;
+  margin: 0 auto 24px auto;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.slide2-items-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.slide2-card {
+  background: var(--glass-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 30px 20px;
+  font-size: var(--text-body-large);
+  font-weight: 700;
+  color: var(--light-cyan);
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide2-card.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide2-card:hover {
+  border-color: var(--cyan);
+  background: var(--glass-card-hover);
+  transform: translateY(-8px);
+}
+
+.slide2-conclusion {
+  font-size: var(--text-h2);
+  font-weight: 800;
+  color: var(--cyan);
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide2-conclusion.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Floating Questions Background Layer for Slide 2 */
+.slide2-bg-questions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.12;
+  font-family: var(--font-english);
+  font-size: 72px;
+  font-weight: bold;
+  color: var(--cyan);
+  overflow: hidden;
+  z-index: 1;
+  transition: opacity 1.5s ease;
+}
+
+.slide2-bg-questions.fade-out {
+  opacity: 0.03;
+}
+
+/* ==========================================================================
+   SLIDE 3: فلسفة المبادرة (Philosophy)
+   ========================================================================== */
+#slide-3 .safe-area {
+  text-align: center;
+  position: relative;
+}
+
+.slide3-pre-title {
+  font-size: var(--text-h3);
+  color: var(--light-cyan);
+  margin-bottom: 20px;
+}
+
+.slide3-strike-list {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.slide3-strike-item {
+  position: relative;
+  font-size: var(--text-body-large);
+  color: rgba(221, 245, 250, 0.7);
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-xs);
+  transition: color 0.4s ease;
+}
+
+.slide3-strike-item.struck {
+  color: rgba(221, 245, 250, 0.35);
+}
+
+.slide3-big-question-wrap {
+  position: relative;
+  margin: 16px auto;
+  max-width: 1000px;
+  z-index: 4;
+}
+
+.slide3-big-question {
+  font-size: clamp(42px, 5.2vw, 92px);
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--white);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide3-big-question.zoomed {
+  transform: scale(1.06);
+  color: #FFFFFF;
+  text-shadow: 0 0 35px rgba(24, 166, 183, 0.6);
+}
+
+/* Floating Orbit Keywords */
+.slide3-orbit-words {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.slide3-tag {
+  position: absolute;
+  padding: 10px 24px;
+  background: rgba(7, 87, 166, 0.28);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: var(--radius-full);
+  font-size: var(--text-body);
+  color: var(--light-cyan);
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.slide3-tag.visible {
+  opacity: 0.85;
+}
+
+/* Tag Positions */
+.tag-pos-1 { top: 15%; right: 12%; }
+.tag-pos-2 { top: 22%; left: 14%; }
+.tag-pos-3 { bottom: 18%; right: 18%; }
+.tag-pos-4 { bottom: 20%; left: 16%; }
+.tag-pos-5 { top: 48%; right: 6%; }
+.tag-pos-6 { top: 50%; left: 6%; }
+.tag-pos-7 { bottom: 8%; right: 38%; }
+.tag-pos-8 { top: 10%; left: 40%; }
+
+/* ==========================================================================
+   SLIDE 4: مويا في الحياة (Moya in Life)
+   ========================================================================== */
+#slide-4 .safe-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90vw;
+  max-width: 1540px;
+}
+
+.slide4-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.slide4-cards-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  width: 100%;
+  flex: 1;
+  max-height: 520px;
+}
+
+.slide4-card {
+  position: relative;
+  background: var(--glass-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 36px 28px;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide4-card-bg-visual {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  object-fit: cover;
+  opacity: 0.35;
+  transition: opacity 0.4s ease, transform 0.6s ease;
+}
+
+.slide4-card:hover .slide4-card-bg-visual {
+  opacity: 0.6;
+  transform: scale(1.05);
+}
+
+.slide4-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: linear-gradient(to top, rgba(3, 27, 59, 0.95) 20%, rgba(6, 47, 99, 0.4) 60%, transparent 100%);
+}
+
+.slide4-card-content {
+  position: relative;
+  z-index: 3;
+}
+
+.slide4-card-title {
+  font-size: var(--text-h3);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.slide4-card-desc {
+  font-size: var(--text-body);
+  line-height: 1.5;
+  color: var(--light-cyan);
+  opacity: 0.85;
+  transform: translateY(12px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.slide4-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-8px);
+  box-shadow: var(--glow-cyan);
+}
+
+.slide4-card:hover .slide4-card-desc {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.slide4-card-explore-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: var(--text-caption);
+  color: var(--cyan);
+  font-weight: bold;
+}
+
+.slide4-footer {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.slide4-hashtag {
+  font-family: var(--font-arabic);
+  font-size: var(--text-h3);
+  font-weight: 800;
+  color: var(--cyan);
+  display: inline-block;
+  position: relative;
+}
+
+/* ==========================================================================
+   SLIDE 5: WOW MOMENT (Cinematic & Human)
+   ========================================================================== */
+#slide-5 {
+  background-color: #010B18;
+}
+
+#slide-5 .safe-area {
+  max-width: 1600px;
+  width: 92vw;
+  height: 88vh;
+  justify-content: space-between;
+}
+
+.slide5-top-text {
+  text-align: center;
+}
+
+.slide5-interactive-container {
+  position: relative;
+  width: 100%;
+  height: 58vh;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-deep);
+}
+
+.slide5-split-side {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  overflow: hidden;
+  transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s;
+}
+
+.slide5-mri-side {
+  right: 0;
+  width: 100%;
+  background: radial-gradient(circle at center, #0B2244 0%, #030F1F 80%);
+  z-index: 2;
+}
+
+.slide5-mri-side.split-active {
+  width: 50%;
+  border-left: 2px solid var(--cyan);
+}
+
+.slide5-human-side {
+  left: 0;
+  width: 50%;
+  background: radial-gradient(circle at center, #063973 0%, #021935 80%);
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slide5-human-side.split-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.slide5-visual-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide5-mri-graphic {
+  max-height: 85%;
+  max-width: 85%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 25px rgba(20, 139, 209, 0.6));
+}
+
+.slide5-human-collage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 90%;
+}
+
+.slide5-human-chip {
+  background: rgba(221, 245, 250, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(24, 166, 183, 0.4);
+  border-radius: var(--radius-sm);
+  padding: 22px 14px;
+  text-align: center;
+  font-size: var(--text-body);
+  font-weight: 700;
+  color: var(--white);
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.slide5-human-chip.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide5-bottom-revelation {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.slide5-climax-statement {
+  font-size: var(--text-h2);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.35;
+  text-shadow: 0 0 30px rgba(24, 166, 183, 0.5);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: all 0.8s ease 0.3s;
+}
+
+.slide5-climax-statement.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   SLIDE 6: منظومة المحتوى (Content Ecosystem)
+   ========================================================================== */
+#slide-6 .safe-area {
+  position: relative;
+  width: 90vw;
+  max-width: 1500px;
+}
+
+.slide6-center-orbit-system {
+  position: relative;
+  width: 650px;
+  height: 650px;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide6-orbit-ring {
+  position: absolute;
+  width: 580px;
+  height: 580px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(24, 166, 183, 0.35);
+  pointer-events: none;
+}
+
+.slide6-center-hub {
+  position: relative;
+  z-index: 5;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--blue) 0%, var(--navy-deep) 100%);
+  border: 3px solid var(--cyan);
+  box-shadow: var(--glow-cyan);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 12px;
+}
+
+.slide6-center-hub img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 6px;
+}
+
+.slide6-node {
+  position: absolute;
+  width: 190px;
+  padding: 18px 16px;
+  border-radius: var(--radius-md);
+  background: var(--glass-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+  cursor: pointer;
+  z-index: 6;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide6-node:hover {
+  transform: scale(1.12);
+  border-color: var(--cyan);
+  background: rgba(7, 87, 166, 0.45);
+  box-shadow: var(--glow-cyan);
+  z-index: 10;
+}
+
+.slide6-node-title {
+  font-size: var(--text-body);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.slide6-node-desc {
+  font-size: var(--text-caption);
+  color: var(--light-cyan);
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.badge-soon {
+  display: inline-block;
+  background: var(--red);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  margin-top: 4px;
+}
+
+/* 5 Nodes Trigonometric Circular Placement (Radius ~290px) */
+/* Angle 0 (Top): 0 deg */
+.node-pos-1 { top: 0px; left: calc(50% - 95px); }
+/* Angle 72 deg: Right Upper */
+.node-pos-2 { top: 160px; right: -20px; }
+/* Angle 144 deg: Right Lower */
+.node-pos-3 { bottom: 60px; right: 20px; }
+/* Angle 216 deg: Left Lower */
+.node-pos-4 { bottom: 60px; left: 20px; }
+/* Angle 288 deg: Left Upper */
+.node-pos-5 { top: 160px; left: -20px; }
+
+/* ==========================================================================
+   SLIDE 7: رحلة المبادرة (Journey Timeline)
+   ========================================================================== */
+#slide-7 .safe-area {
+  width: 94vw;
+  max-width: 1700px;
+  justify-content: space-between;
+}
+
+.slide7-timeline-track-wrap {
+  position: relative;
+  width: 100%;
+  margin: 40px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px 10px;
+  scrollbar-width: none;
+}
+
+.slide7-timeline-track-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.slide7-timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+  right: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cyan), var(--bright-blue), var(--cyan));
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.slide7-milestones-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 1200px;
+  position: relative;
+  z-index: 2;
+  gap: 24px;
+}
+
+.slide7-milestone-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.slide7-milestone-item:hover {
+  transform: translateY(-8px);
+}
+
+.slide7-milestone-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--navy-deep);
+  border: 3px solid var(--cyan);
+  box-shadow: 0 0 15px var(--cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 18px 0;
+  transition: all 0.3s ease;
+}
+
+.slide7-milestone-item:hover .slide7-milestone-dot {
+  background: var(--cyan);
+  transform: scale(1.2);
+}
+
+.slide7-milestone-card {
+  background: var(--glass-card);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 22px 18px;
+  width: 100%;
+  box-shadow: var(--shadow-soft);
+}
+
+.slide7-milestone-num {
+  font-family: var(--font-english);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cyan);
+  margin-bottom: 6px;
+}
+
+.slide7-milestone-title {
+  font-size: var(--text-body);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.slide7-milestone-desc {
+  font-size: var(--text-caption);
+  color: var(--light-cyan);
+  line-height: 1.45;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   SLIDE 8: الأثر بالأرقام (Impact in Numbers)
+   ========================================================================== */
+#slide-8 .safe-area {
+  max-width: 1500px;
+  width: 90vw;
+  text-align: center;
+}
+
+.slide8-stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.slide8-stat-card {
+  flex: 1 1 240px;
+  max-width: 280px;
+  background: var(--glass-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 38px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s ease;
+}
+
+.slide8-stat-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-8px);
+  box-shadow: var(--glow-cyan);
+}
+
+.slide8-stat-number {
+  font-family: var(--font-english);
+  font-size: clamp(48px, 6vw, 84px);
+  font-weight: 900;
+  color: var(--cyan);
+  line-height: 1;
+}
+
+.slide8-stat-label {
+  font-size: var(--text-body);
+  font-weight: 700;
+  color: var(--white);
+}
+
+/* Fallback card if all impact data is null - Prestigious Official State */
+.slide8-null-fallback-wrap {
+  width: 100%;
+  max-width: 1100px;
+  margin: 20px auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.slide8-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 22px;
+  background: rgba(24, 166, 183, 0.12);
+  border: 1px solid var(--cyan);
+  border-radius: var(--radius-full);
+  font-size: var(--text-caption);
+  font-weight: 700;
+  color: var(--light-cyan);
+  box-shadow: 0 0 20px rgba(24, 166, 183, 0.3);
+}
+
+.slide8-live-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+  animation: radarPulse 2s ease-in-out infinite;
+}
+
+@keyframes radarPulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+.slide8-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.slide8-preview-card {
+  background: var(--glass-card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 26px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide8-preview-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-6px);
+  box-shadow: var(--glow-cyan);
+}
+
+.slide8-preview-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--glass-border);
+  margin-bottom: 4px;
+}
+
+.slide8-preview-val {
+  font-family: var(--font-arabic);
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.slide8-preview-label {
+  font-size: var(--text-caption);
+  color: var(--light-cyan);
+  opacity: 0.85;
+}
+
+.slide8-null-quote {
+  font-size: var(--text-body);
+  font-weight: 600;
+  color: var(--light-cyan);
+  line-height: 1.6;
+  max-width: 850px;
+  text-align: center;
+  margin-top: 10px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   SLIDE 9: الفريق (The Team Mosaic)
+   ========================================================================== */
+#slide-9 .safe-area {
+  width: 92vw;
+  max-width: 1600px;
+  height: 88vh;
+  justify-content: space-between;
+}
+
+.slide9-mosaic-container {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.slide9-mosaic-item {
+  position: relative;
+  background: var(--navy-deep);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide9-mosaic-item:hover {
+  transform: scale(1.04);
+  border-color: var(--cyan);
+  z-index: 5;
+  box-shadow: var(--glow-blue);
+}
+
+.slide9-mosaic-item img, .slide9-mosaic-item svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+.slide9-mosaic-item:hover img, .slide9-mosaic-item:hover svg {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+.slide9-center-quote-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  background: rgba(3, 27, 59, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.5px solid var(--cyan);
+  border-radius: var(--radius-lg);
+  padding: 36px 48px;
+  text-align: center;
+  box-shadow: var(--shadow-deep);
+  max-width: 720px;
+  width: 90%;
+}
+
+.slide9-center-quote-main {
+  font-size: var(--text-h3);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.slide9-center-quote-sub {
+  font-size: var(--text-body);
+  color: var(--light-cyan);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   SLIDE 10: لماذا المؤتمر؟ (Why the Conference?)
+   ========================================================================== */
+#slide-10 .safe-area {
+  max-width: 1500px;
+  width: 90vw;
+  text-align: center;
+}
+
+.slide10-compass-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 1000px;
+  margin: 40px auto 30px auto;
+}
+
+.slide10-quadrant {
+  background: var(--glass-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  text-align: center;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-soft);
+}
+
+.slide10-quadrant:hover {
+  border-color: var(--cyan);
+  transform: translateY(-6px);
+  background: var(--glass-card-hover);
+  box-shadow: var(--glow-cyan);
+}
+
+.slide10-quadrant-title {
+  font-size: var(--text-h3);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.slide10-quadrant-desc {
+  font-size: var(--text-body);
+  color: var(--light-cyan);
+  line-height: 1.45;
+}
+
+.slide10-central-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--navy-deep);
+  border: 2px solid var(--cyan);
+  padding: 16px 28px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-body);
+  font-weight: 800;
+  color: var(--white);
+  box-shadow: var(--glow-cyan);
+  z-index: 3;
+}
+
+.slide10-final-impact {
+  font-size: var(--text-h2);
+  font-weight: 800;
+  color: var(--white);
+  margin-top: 20px;
+}
+
+.slide10-punch-word {
+  color: var(--red);
+  text-shadow: 0 0 25px rgba(229, 37, 50, 0.8);
+  display: inline-block;
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   SLIDE 11: شركاء الأثر (Partners of Impact)
+   ========================================================================== */
+#slide-11 .safe-area {
+  max-width: 1500px;
+  width: 90vw;
+  text-align: center;
+}
+
+.slide11-sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  width: 100%;
+  margin-top: 45px;
+}
+
+.slide11-sponsor-card {
+  position: relative;
+  background: var(--glass-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-soft);
+}
+
+.slide11-sponsor-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--cyan);
+  box-shadow: var(--glow-cyan);
+}
+
+.slide11-sponsor-logo-box {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.slide11-sponsor-logo-box img, .slide11-sponsor-logo-box svg {
+  max-height: 100px;
+  max-width: 80%;
+  object-fit: contain;
+  filter: brightness(1.05);
+}
+
+.slide11-sponsor-name {
+  font-size: var(--text-h3);
+  font-weight: 800;
+  color: var(--white);
+}
+
+.slide11-sponsor-badge {
+  display: inline-block;
+  background: rgba(24, 166, 183, 0.15);
+  border: 1px solid rgba(24, 166, 183, 0.4);
+  color: var(--light-cyan);
+  font-size: var(--text-caption);
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+}
+
+/* ==========================================================================
+   SLIDE 12: ماذا بعد المؤتمر؟ (What's After the Conference?)
+   ========================================================================== */
+#slide-12 .safe-area {
+  max-width: 1600px;
+  width: 92vw;
+  height: 88vh;
+  justify-content: space-between;
+}
+
+.slide12-roadmap-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.slide12-roadmap-step {
+  background: var(--glass-card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  transition: all 0.3s ease;
+}
+
+.slide12-roadmap-step.active-step {
+  border-color: var(--cyan);
+  background: rgba(7, 87, 166, 0.4);
+  box-shadow: var(--glow-cyan);
+}
+
+.slide12-step-num {
+  font-family: var(--font-english);
+  font-size: var(--text-body);
+  font-weight: 800;
+  color: var(--cyan);
+  margin-bottom: 8px;
+}
+
+.slide12-step-title {
+  font-size: var(--text-body);
+  font-weight: 700;
+  color: var(--white);
+}
+
+/* Laptop / Digital Platform Mockup */
+.slide12-laptop-mockup-wrapper {
+  width: 100%;
+  max-width: 920px;
+  margin: 20px auto 0 auto;
+  opacity: 0;
+  transform: translateY(30px) scale(0.96);
+  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide12-laptop-mockup-wrapper.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.browser-mockup {
+  background: #021227;
+  border: 2px solid var(--glass-border-bright);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-deep);
+  overflow: hidden;
+}
+
+.browser-header {
+  background: #062F63;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.browser-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.browser-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.browser-address-bar {
+  flex: 1;
+  background: rgba(2, 18, 39, 0.6);
+  border-radius: var(--radius-xs);
+  padding: 6px 14px;
+  font-family: var(--font-english);
+  font-size: 13px;
+  color: var(--light-cyan);
+  direction: ltr;
+  text-align: left;
+}
+
+.browser-viewport-screen {
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  background: radial-gradient(circle at center, #0757A6 0%, #031B3B 80%);
+  position: relative;
+  overflow: hidden;
+}
+
+.browser-shimmer-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  animation: sweepLight 2.2s infinite;
+}
+
+.browser-platform-title {
+  font-family: var(--font-english);
+  font-size: var(--text-h3);
+  font-weight: 800;
+  color: var(--white);
+}
+
+/* ==========================================================================
+   SLIDE 13: الرؤية (The Vision)
+   ========================================================================== */
+#slide-13 {
+  background-color: var(--navy-darker);
+}
+
+#slide-13 .safe-area {
+  max-width: 1300px;
+  width: 90vw;
+  text-align: center;
+  position: relative;
+}
+
+.slide13-vision-text {
+  font-size: clamp(32px, 3.8vw, 68px);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--light-cyan);
+  margin: 40px auto;
+}
+
+.slide13-centerpiece {
+  font-size: clamp(40px, 4.8vw, 84px);
+  font-weight: 900;
+  color: var(--white);
+  background: linear-gradient(135deg, #FFFFFF 20%, var(--light-cyan) 60%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 18px 36px;
+  border-radius: var(--radius-lg);
+  display: inline-block;
+  margin-top: 15px;
+  border: 1px solid rgba(24, 166, 183, 0.3);
+  box-shadow: var(--glow-cyan);
+}
+
+/* Abstract Constellation Layer for Slide 13 */
+.slide13-abstract-constellation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   SLIDE 14: النهاية (Finale / Closing)
+   ========================================================================== */
+#slide-14 {
+  background-color: #010B18;
+}
+
+#slide-14 .safe-area {
+  text-align: center;
+  gap: 24px;
+}
+
+.slide14-montage-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.slide14-montage-container.playing {
+  opacity: 0.22;
+}
+
+.slide14-finale-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.slide14-prelude {
+  font-size: var(--text-h2);
+  color: var(--light-cyan);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.slide14-logo-wrap {
+  position: relative;
+  margin: 10px 0;
+}
+
+.slide14-logo-img {
+  width: 200px;
+  height: auto;
+  filter: drop-shadow(0 10px 30px rgba(24, 166, 183, 0.4));
+}
+
+.slide14-glowing-sweep-line {
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--cyan), var(--white), var(--cyan), transparent);
+  box-shadow: 0 0 20px var(--cyan);
+  border-radius: 4px;
+}
+
+.slide14-motto {
+  font-size: var(--text-h2);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.35;
+}
+
+.slide14-hope-tag {
+  font-size: var(--text-h3);
+  font-weight: 700;
+  color: var(--cyan);
+}
+
+.slide14-thankyou {
+  font-size: var(--text-body);
+  color: var(--light-cyan);
+  margin-top: 15px;
+}

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 260" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gradConf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#148BD1" />
+      <stop offset="50%" stop-color="#18A6B7" />
+      <stop offset="100%" stop-color="#062F63" />
+    </linearGradient>
+    <filter id="confGlow">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Brain & Moyamoya Vascular Puff Motif -->
+  <g transform="translate(70, 50)" filter="url(#confGlow)">
+    <!-- Cerebral silhouette -->
+    <path d="M 60 40 C 30 20, -10 40, -10 80 C -10 110, 20 135, 60 145 C 100 135, 130 110, 130 80 C 130 40, 90 20, 60 40 Z" 
+          fill="none" stroke="url(#gradConf)" stroke-width="5" />
+    <!-- Moyamoya fine collateral vessel cluster (puff of smoke) -->
+    <path d="M 60 145 Q 60 100 45 80 Q 30 60 20 45" fill="none" stroke="#DDF5FA" stroke-width="2.5" />
+    <path d="M 60 100 Q 75 75 95 60" fill="none" stroke="#DDF5FA" stroke-width="2" />
+    <path d="M 45 80 Q 40 60 55 45" fill="none" stroke="#18A6B7" stroke-width="2" />
+    <path d="M 60 120 Q 50 105 35 105" fill="none" stroke="#148BD1" stroke-width="1.8" />
+    <!-- Pulse node in center -->
+    <circle cx="60" cy="100" r="4" fill="#E52532" filter="drop-shadow(0 0 6px #E52532)" />
+  </g>
+
+  <!-- Conference Typography -->
+  <g transform="translate(250, 105)">
+    <text x="0" y="0" font-family="'IBM Plex Sans Arabic', 'Tajawal', 'Cairo', sans-serif" font-size="44" font-weight="900" fill="#FFFFFF">مؤتمر المويا مويا</text>
+    <text x="0" y="38" font-family="'Inter', sans-serif" font-size="18" font-weight="700" fill="#18A6B7" letter-spacing="3">MOYA MOYA DISEASE CONFERENCE</text>
+    <g transform="translate(0, 72)">
+      <rect x="0" y="-18" width="140" height="28" rx="14" fill="rgba(24,166,183,0.2)" stroke="rgba(24,166,183,0.6)" />
+      <text x="70" y="0" font-family="'Inter', sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">17 . 10 . 2026</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="mriBack" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#081E3B" />
+      <stop offset="70%" stop-color="#030D1C" />
+      <stop offset="100%" stop-color="#01060D" />
+    </radialGradient>
+    <filter id="mriVesselGlow">
+      <feGaussianBlur stdDeviation="4" result="blur1" />
+      <feGaussianBlur stdDeviation="10" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#mriBack)" />
+
+  <!-- Cranial Outline Contour in MRI style -->
+  <path d="M 400 60 C 220 60, 160 170, 160 300 C 160 440, 250 510, 400 520 C 550 510, 640 440, 640 300 C 640 170, 580 60, 400 60 Z" 
+        fill="none" stroke="rgba(24, 166, 183, 0.18)" stroke-width="2" stroke-dasharray="4 6" />
+
+  <!-- Main Internal Carotid Artery (ICA) Trunk -->
+  <g filter="url(#mriVesselGlow)">
+    <!-- Right Carotid Artery ascending -->
+    <path d="M 400 520 Q 390 440 370 380 Q 360 330 350 280" 
+          fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" />
+    <!-- Tapering/Stenosis area (characteristic of Moyamoya) -->
+    <path d="M 350 280 Q 345 250 350 230" 
+          fill="none" stroke="#DDF5FA" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Moyamoya "Puff of Smoke" Collateral Network -->
+    <!-- Branch cluster 1 -->
+    <path d="M 350 240 Q 310 210 270 230 Q 230 250 190 220" fill="none" stroke="#18A6B7" stroke-width="2" />
+    <path d="M 350 240 Q 310 180 290 140 Q 270 100 240 80" fill="none" stroke="#148BD1" stroke-width="2.2" />
+    <path d="M 350 230 Q 370 170 360 120 Q 350 80 380 70" fill="none" stroke="#DDF5FA" stroke-width="2" />
+    <path d="M 350 240 Q 390 200 420 180 Q 460 160 500 130" fill="none" stroke="#18A6B7" stroke-width="2.2" />
+    <path d="M 350 250 Q 380 260 430 240 Q 480 220 530 240" fill="none" stroke="#148BD1" stroke-width="2" />
+
+    <!-- Fine hazy capillary collateral filaments (Moyamoya cloud) -->
+    <path d="M 350 250 Q 330 240 320 220 Q 310 200 290 190" fill="none" stroke="rgba(24,166,183,0.7)" stroke-width="1.2" />
+    <path d="M 350 250 Q 365 230 380 220 Q 400 210 410 190" fill="none" stroke="rgba(24,166,183,0.7)" stroke-width="1.2" />
+    <path d="M 330 220 Q 335 195 350 180 Q 370 170 360 150" fill="none" stroke="rgba(221,245,250,0.8)" stroke-width="1.2" />
+    <path d="M 370 240 Q 390 250 410 240 Q 430 230 450 250" fill="none" stroke="rgba(20,139,209,0.7)" stroke-width="1.2" />
+    <path d="M 345 270 Q 315 280 280 290 Q 250 300 230 290" fill="none" stroke="rgba(24,166,183,0.6)" stroke-width="1.2" />
+  </g>
+
+  <!-- High-tech MRI Medical HUD markings -->
+  <g font-family="'Inter', monospace" font-size="11" fill="rgba(221,245,250,0.5)">
+    <text x="30" y="40">SCAN: CEREBRAL ANGIOGRAPHY (MRA)</text>
+    <text x="30" y="60">SERIES: 3D-TOF / TR: 22ms / TE: 3.4ms</text>
+    <text x="30" y="80">FOV: 200mm / SLICE: 0.8mm</text>
+    <text x="770" y="40" text-anchor="end">ICA BIFURCATION</text>
+    <text x="770" y="60" text-anchor="end">SMOKY COLLATERALS DETECTED</text>
+    <text x="770" y="570" text-anchor="end">AXIAL PROJECTION</text>
+  </g>
+</svg>

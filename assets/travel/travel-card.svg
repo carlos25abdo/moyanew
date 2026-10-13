@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <radialGradient id="travelGrad" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#148BD1" />
+      <stop offset="100%" stop-color="#021227" />
+    </radialGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#travelGrad)" />
+  <!-- Airplane & Compass Motif -->
+  <g transform="translate(300, 160)" stroke="#18A6B7" fill="none" stroke-linecap="round">
+    <circle cx="0" cy="0" r="110" stroke="rgba(221,245,250,0.25)" stroke-width="2" />
+    <path d="M 0 -70 L 15 -20 L 70 0 L 15 20 L 0 70 L -15 20 L -70 0 L -15 -20 Z" fill="rgba(6,47,99,0.7)" stroke="#FFFFFF" stroke-width="3.5" />
+    <!-- Flight arc line -->
+    <path d="M -130 50 Q 0 -90 130 -40" stroke="#DDF5FA" stroke-width="3" stroke-dasharray="6 6" />
+    <circle cx="130" cy="-40" r="6" fill="#E52532" stroke="none" />
+  </g>
+  <text x="300" y="320" font-family="'IBM Plex Sans Arabic', sans-serif" font-size="28" font-weight="800" fill="#FFFFFF" text-anchor="middle">السفر والتروية الآمنة</text>
+  <text x="300" y="355" font-family="'Inter', sans-serif" font-size="16" fill="#DDF5FA" text-anchor="middle" opacity="0.8">TRAVEL WITH CONFIDENCE</text>
+</svg>

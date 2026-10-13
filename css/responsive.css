@@ -1,0 +1,298 @@
+/* ==========================================================================
+   Responsive & Projector Display Adaptations
+   ========================================================================== */
+
+/* 16:9 Screen Optimizations */
+@media (max-aspect-ratio: 16/9) {
+  :root {
+    --safe-margin-x: 5vw;
+    --safe-margin-y: 6vh;
+  }
+}
+
+@media (min-aspect-ratio: 16/9) {
+  :root {
+    --safe-margin-x: 7vw;
+    --safe-margin-y: 5vh;
+  }
+}
+
+/* Medium & Compact Height Screens (Laptops, Projectors, 600px - 800px height) */
+@media (max-height: 800px) {
+  :root {
+    --safe-margin-y: 3vh;
+    --safe-margin-x: 5vw;
+  }
+
+  .slide-title-main {
+    font-size: clamp(28px, 3.6vw, 52px) !important;
+    margin-bottom: 12px !important;
+  }
+
+  .slide-subtitle {
+    font-size: clamp(16px, 1.8vw, 24px) !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* Slide 1 */
+  .slide1-logo-container {
+    width: 190px !important;
+    height: 190px !important;
+  }
+  .slide1-vascular-halo {
+    width: 260px !important;
+    height: 260px !important;
+  }
+  .slide1-logo-img {
+    width: 160px !important;
+  }
+  .slide1-title {
+    font-size: clamp(48px, 6vw, 84px) !important;
+  }
+  .slide1-line1, .slide1-line2 {
+    font-size: clamp(20px, 2.4vw, 36px) !important;
+  }
+
+  /* Slide 2 */
+  .slide2-intro-title {
+    font-size: clamp(16px, 1.8vw, 24px) !important;
+    margin-bottom: 6px !important;
+  }
+  .slide2-main-question {
+    font-size: clamp(24px, 3.0vw, 48px) !important;
+    margin-bottom: 16px !important;
+  }
+  .slide2-items-grid {
+    gap: 16px !important;
+    margin-bottom: 16px !important;
+  }
+  .slide2-card {
+    padding: 18px 14px !important;
+    font-size: 17px !important;
+  }
+  .slide2-conclusion {
+    font-size: clamp(22px, 2.6vw, 38px) !important;
+  }
+
+  /* Slide 3 */
+  .slide3-pre-title {
+    font-size: clamp(18px, 2vw, 28px) !important;
+    margin-bottom: 12px !important;
+  }
+  .slide3-strike-list {
+    gap: 14px !important;
+    margin-bottom: 16px !important;
+  }
+  .slide3-strike-item {
+    font-size: 16px !important;
+    padding: 6px 14px !important;
+  }
+  .slide3-big-question-wrap {
+    margin: 10px auto !important;
+  }
+  .slide3-big-question {
+    font-size: clamp(30px, 4vw, 62px) !important;
+  }
+
+  /* Slide 4 */
+  .slide4-cards-row {
+    max-height: 380px !important;
+    gap: 18px !important;
+  }
+  .slide4-card-content {
+    padding: 18px 16px !important;
+  }
+
+  /* Slide 5 */
+  .slide5-interactive-container {
+    height: 46vh !important;
+    gap: 20px !important;
+  }
+  .slide5-human-chip {
+    padding: 12px 8px !important;
+    font-size: 15px !important;
+  }
+  .slide5-climax-statement {
+    font-size: clamp(22px, 2.6vw, 38px) !important;
+  }
+
+  /* Slide 6 */
+  .slide6-center-orbit-system {
+    width: 440px !important;
+    height: 440px !important;
+    margin: 14px auto !important;
+  }
+  .slide6-orbit-ring {
+    width: 400px !important;
+    height: 400px !important;
+  }
+  .slide6-center-hub {
+    width: 120px !important;
+    height: 120px !important;
+    padding: 8px !important;
+  }
+  .slide6-center-hub img {
+    width: 55px !important;
+  }
+  .slide6-node {
+    width: 150px !important;
+    padding: 10px 8px !important;
+  }
+  .slide6-node-title {
+    font-size: 14px !important;
+  }
+  .slide6-node-desc {
+    font-size: 11px !important;
+  }
+  .node-pos-1 { top: -8px; }
+  .node-pos-2 { top: 100px; right: -25px; }
+  .node-pos-3 { bottom: 30px; right: 0px; }
+  .node-pos-4 { bottom: 30px; left: 0px; }
+  .node-pos-5 { top: 100px; left: -25px; }
+
+  /* Slide 7 */
+  .slide7-timeline-track-wrap {
+    margin-top: 20px !important;
+  }
+  .slide7-milestone-card {
+    padding: 14px 10px !important;
+  }
+  .slide7-milestone-title {
+    font-size: 15px !important;
+  }
+  .slide7-milestone-desc {
+    font-size: 12px !important;
+  }
+
+  /* Slide 8 */
+  .slide8-stats-grid {
+    gap: 18px !important;
+    margin-top: 20px !important;
+  }
+  .slide8-stat-card {
+    padding: 22px 16px !important;
+  }
+  .slide8-stat-number {
+    font-size: 52px !important;
+  }
+
+  /* Slide 9 */
+  .slide9-mosaic-container {
+    gap: 12px !important;
+    margin: 10px 0 !important;
+  }
+  .slide9-center-quote-box {
+    padding: 16px 24px !important;
+    max-width: 520px !important;
+  }
+  .slide9-center-quote-main {
+    font-size: 19px !important;
+  }
+
+  /* Slide 10 */
+  .slide10-compass-grid {
+    gap: 16px !important;
+    margin: 16px 0 !important;
+  }
+  .slide10-quadrant {
+    padding: 16px 18px !important;
+  }
+
+  /* Slide 11 */
+  .slide11-sponsors-grid {
+    gap: 20px !important;
+    margin-top: 18px !important;
+  }
+  .slide11-sponsor-card {
+    padding: 24px 18px !important;
+  }
+
+  /* Slide 12 */
+  .slide12-roadmap-row {
+    gap: 16px !important;
+    margin: 14px 0 !important;
+  }
+  .slide12-laptop-mockup-wrapper {
+    max-height: 230px !important;
+    margin-top: 10px !important;
+  }
+  .browser-viewport-screen {
+    height: 150px !important;
+  }
+
+  /* HUD */
+  .nav-hud {
+    bottom: 12px !important;
+    padding: 6px 16px !important;
+    gap: 14px !important;
+  }
+  .brand-top-hud, .audio-atmosphere-badge {
+    top: 14px !important;
+    padding: 6px 14px !important;
+  }
+}
+
+/* 4K & Ultra High-Res Displays (2560x1440 and above) */
+@media (min-width: 2500px) {
+  :root {
+    --safe-margin-x: 8vw;
+    --safe-margin-y: 7vh;
+  }
+
+  .nav-progress-dot {
+    width: 14px;
+    height: 14px;
+  }
+
+  .nav-progress-dot.active {
+    width: 38px;
+  }
+}
+
+/* Touch & Mobile Fallbacks */
+@media (max-width: 900px) {
+  .slide2-items-grid,
+  .slide4-cards-row,
+  .slide11-sponsors-grid,
+  .slide12-roadmap-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-height: none;
+    overflow-y: auto;
+  }
+
+  .slide10-compass-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .slide9-mosaic-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .slide6-center-orbit-system {
+    display: none;
+  }
+}
+
+/* Reduced Motion Mode for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .slide {
+    filter: none !important;
+    transform: none !important;
+  }
+
+  .custom-cursor,
+  .custom-cursor-follower {
+    display: none !important;
+  }
+
+  .canvas-bg-layer {
+    opacity: 0.3 !important;
+  }
+}

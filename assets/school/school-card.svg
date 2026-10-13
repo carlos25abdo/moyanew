@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <radialGradient id="schoolGrad" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#0757A6" />
+      <stop offset="100%" stop-color="#031B3B" />
+    </radialGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#schoolGrad)" />
+  <!-- School / Classroom Concept Graphic -->
+  <g transform="translate(300, 160)" stroke="#18A6B7" fill="none" stroke-linecap="round">
+    <!-- Backpack & Book motif -->
+    <path d="M -60 60 L -60 -20 C -60 -50, 60 -50, 60 -20 L 60 60 Z" stroke-width="4" stroke="#FFFFFF" fill="rgba(6,47,99,0.5)" />
+    <path d="M -25 -20 L -25 -50 C -25 -65, 25 -65, 25 -50 L 25 -20" stroke-width="4" stroke="#148BD1" />
+    <path d="M -45 10 L 45 10" stroke-width="3" stroke="#DDF5FA" />
+    <circle cx="0" cy="30" r="12" fill="#E52532" stroke="none" />
+    <!-- Radiating supportive neural aura -->
+    <circle cx="0" cy="0" r="120" stroke="rgba(24,166,183,0.3)" stroke-dasharray="8 8" stroke-width="2" />
+  </g>
+  <text x="300" y="320" font-family="'IBM Plex Sans Arabic', sans-serif" font-size="28" font-weight="800" fill="#FFFFFF" text-anchor="middle">البيئة المدرسية الواعية</text>
+  <text x="300" y="355" font-family="'Inter', sans-serif" font-size="16" fill="#DDF5FA" text-anchor="middle" opacity="0.8">SCHOOL &amp; MOYAMOYA</text>
+</svg>

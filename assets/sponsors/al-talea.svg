@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 160" width="100%" height="100%">
+  <!-- Technical Equipment Cogwheel / Waveform -->
+  <g transform="translate(40, 35)">
+    <circle cx="45" cy="45" r="42" fill="rgba(7,87,166,0.3)" stroke="#18A6B7" stroke-width="2.5" />
+    <!-- Tech diamond / signal -->
+    <path d="M 45 22 L 68 45 L 45 68 L 22 45 Z" fill="none" stroke="#FFFFFF" stroke-width="3" />
+    <path d="M 32 45 L 58 45 M 45 32 L 45 58" stroke="#18A6B7" stroke-width="2" />
+    <circle cx="45" cy="45" r="5" fill="#E52532" />
+  </g>
+  <!-- Text -->
+  <g transform="translate(145, 75)">
+    <text x="0" y="0" font-family="'IBM Plex Sans Arabic', 'Tajawal', sans-serif" font-size="26" font-weight="800" fill="#FFFFFF">شركة الطليعة للتجهيزات</text>
+    <text x="0" y="28" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#18A6B7" letter-spacing="1">AL-TALEA TECHNICAL EQUIPMENT</text>
+  </g>
+</svg>
