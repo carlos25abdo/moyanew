@@ -14,6 +14,7 @@ class DeckNavigation {
     this.presenter = new window.PresenterManager(this);
     this.wakeLock = null;
     this.idleTimer = null;
+    this.isHudUserHidden = false;
 
     this.initHUD();
     this.initKeyboard();
@@ -97,6 +98,24 @@ class DeckNavigation {
     const btnLaser = document.getElementById('btn-laser');
     if (btnLaser) {
       btnLaser.addEventListener('click', () => this.presenter.toggleLaser());
+    }
+
+    // Hide HUD button
+    const btnHideHud = document.getElementById('btn-hide-hud');
+    if (btnHideHud) {
+      btnHideHud.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.toggleHud(false);
+      });
+    }
+
+    // Restore HUD button
+    const btnRestoreHud = document.getElementById('btn-restore-hud');
+    if (btnRestoreHud) {
+      btnRestoreHud.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.toggleHud(true);
+      });
     }
   }
 
@@ -183,6 +202,12 @@ class DeckNavigation {
           this.presenter.toggleFocusMode();
           break;
 
+        // Toggle Bottom HUD (Key 'H')
+        case 'KeyH':
+          e.preventDefault();
+          this.toggleHud();
+          break;
+
         // Audio mute toggle
         case 'KeyA':
           e.preventDefault();
@@ -224,7 +249,9 @@ class DeckNavigation {
   initIdleHUD() {
     const delay = window.presentationConfig?.presentation?.autoHideNavDelay ?? 2500;
     const showHUD = () => {
-      if (this.navHud) this.navHud.classList.remove('idle-hidden');
+      if (!this.isHudUserHidden && this.navHud) {
+        this.navHud.classList.remove('idle-hidden');
+      }
       const topHud = document.getElementById('brand-top-hud');
       if (topHud) topHud.classList.remove('idle-hidden');
       const audioBadge = document.getElementById('audio-atmosphere-badge');
@@ -241,6 +268,23 @@ class DeckNavigation {
     window.addEventListener('mousemove', showHUD);
     window.addEventListener('keydown', showHUD);
     showHUD();
+  }
+
+  toggleHud(forceState = null) {
+    this.isHudUserHidden = forceState !== null ? !forceState : !this.isHudUserHidden;
+    const navHud = document.getElementById('nav-hud');
+    const btnHide = document.getElementById('btn-hide-hud');
+
+    if (this.isHudUserHidden) {
+      if (navHud) navHud.classList.add('user-hidden');
+      document.body.classList.add('hud-is-hidden');
+      if (btnHide) btnHide.classList.add('active');
+    } else {
+      if (navHud) navHud.classList.remove('user-hidden');
+      document.body.classList.remove('hud-is-hidden');
+      if (btnHide) btnHide.classList.remove('active');
+    }
+    this.audio?.playClick();
   }
 
   async requestWakeLock() {
@@ -346,8 +390,10 @@ class DeckNavigation {
 
   /* Interactive Sub-step Sequencing for complex slides */
   handleSlideStepForward(index) {
+    const slideId = this.slides[index]?.id;
+
     // Slide 2: 3 points sequence
-    if (index === 1) {
+    if (slideId === 'slide-2') {
       const cards = document.querySelectorAll('#slide-2 .slide2-card');
       const conclusion = document.querySelector('#slide-2 .slide2-conclusion');
       const questionsBg = document.querySelector('#slide-2 .slide2-bg-questions');
@@ -368,7 +414,7 @@ class DeckNavigation {
     }
 
     // Slide 3: Strike-through sequence
-    if (index === 2) {
+    if (slideId === 'slide-3') {
       const strikes = document.querySelectorAll('#slide-3 .slide3-strike-item');
       const question = document.querySelector('#slide-3 .slide3-big-question');
       const tags = document.querySelectorAll('#slide-3 .slide3-tag');
@@ -391,7 +437,7 @@ class DeckNavigation {
     }
 
     // Slide 5: WOW MOMENT Split Reveal
-    if (index === 4) {
+    if (slideId === 'slide-5') {
       const mriSide = document.querySelector('#slide-5 .slide5-mri-side');
       const humanSide = document.querySelector('#slide-5 .slide5-human-side');
       const chips = document.querySelectorAll('#slide-5 .slide5-human-chip');
@@ -414,7 +460,7 @@ class DeckNavigation {
     }
 
     // Slide 12: Roadmap Step 4 triggers laptop browser reveal
-    if (index === 11) {
+    if (slideId === 'slide-12') {
       const steps = document.querySelectorAll('#slide-12 .slide12-roadmap-step');
       const laptop = document.querySelector('#slide-12 .slide12-laptop-mockup-wrapper');
 
@@ -438,8 +484,9 @@ class DeckNavigation {
 
   handleSlideStepBackward(index) {
     if (this.slideStep <= 0) return;
+    const slideId = this.slides[index]?.id;
 
-    if (index === 1) {
+    if (slideId === 'slide-2') {
       this.slideStep--;
       const cards = document.querySelectorAll('#slide-2 .slide2-card');
       const conclusion = document.querySelector('#slide-2 .slide2-conclusion');
@@ -448,7 +495,7 @@ class DeckNavigation {
       } else if (cards[this.slideStep]) {
         cards[this.slideStep].classList.remove('revealed');
       }
-    } else if (index === 2) {
+    } else if (slideId === 'slide-3') {
       this.slideStep--;
       const strikes = document.querySelectorAll('#slide-3 .slide3-strike-item');
       if (strikes[this.slideStep]) {
@@ -460,18 +507,20 @@ class DeckNavigation {
   }
 
   onSlideEnter(index) {
+    const slideId = this.slides[index]?.id;
+
     // Slide 1: Heartbeat sound after opening
-    if (index === 0) {
+    if (slideId === 'slide-1') {
       setTimeout(() => this.audio.playHeartbeat(), 1200);
     }
 
     // Slide 5: Human revelation heartbeat
-    if (index === 4) {
+    if (slideId === 'slide-5') {
       setTimeout(() => this.audio.playHeartbeat(), 800);
     }
 
     // Slide 8: Trigger count up for any non-null stat cards
-    if (index === 7) {
+    if (slideId === 'slide-8') {
       const statNums = document.querySelectorAll('#slide-8 .slide8-stat-number');
       statNums.forEach(el => {
         const val = parseInt(el.dataset.val, 10);
@@ -482,12 +531,12 @@ class DeckNavigation {
     }
 
     // Slide 13: Reveal words
-    if (index === 12) {
+    if (slideId === 'slide-13') {
       window.revealWordsSequentially('#slide-13 .slide13-vision-text', 130);
     }
 
     // Slide 14: Montage preview & Finale Chime
-    if (index === 13) {
+    if (slideId === 'slide-14') {
       setTimeout(() => this.audio.playFinaleChime(), 600);
       const montage = document.querySelector('#slide-14 .slide14-montage-container');
       if (montage) {

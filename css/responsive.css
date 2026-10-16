@@ -45,6 +45,7 @@
   }
   .slide1-logo-img {
     width: 160px !important;
+    height: 160px !important;
   }
   .slide1-title {
     font-size: clamp(48px, 6vw, 84px) !important;
@@ -133,6 +134,7 @@
   }
   .slide6-center-hub img {
     width: 55px !important;
+    height: 55px !important;
   }
   .slide6-node {
     width: 150px !important;
@@ -185,8 +187,29 @@
     padding: 16px 24px !important;
     max-width: 520px !important;
   }
-  .slide9-center-quote-main {
-    font-size: 19px !important;
+  /* Slide 9 & 9B */
+  .team-grid-2x2 {
+    gap: 14px !important;
+    margin: 10px 0 !important;
+  }
+  .team-card-photo-box {
+    flex: 0 0 190px !important;
+    min-height: 140px !important;
+    padding: 8px !important;
+  }
+  .team-card-info-box {
+    padding: 14px 18px !important;
+    gap: 6px !important;
+  }
+  .team-card-role-badge {
+    font-size: 12px !important;
+    padding: 4px 10px !important;
+  }
+  .team-card-person-name {
+    font-size: 20px !important;
+  }
+  .team-card-hint {
+    font-size: 11.5px !important;
   }
 
   /* Slide 10 */
@@ -213,11 +236,21 @@
     margin: 14px 0 !important;
   }
   .slide12-laptop-mockup-wrapper {
-    max-height: 230px !important;
     margin-top: 10px !important;
   }
   .browser-viewport-screen {
-    height: 150px !important;
+    min-height: 180px !important;
+    height: auto !important;
+    padding: 14px 16px !important;
+    gap: 10px !important;
+  }
+  .browser-social-links-row {
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .browser-social-btn {
+    padding: 8px 14px !important;
   }
 
   /* HUD */
@@ -265,8 +298,21 @@
     grid-template-columns: 1fr;
   }
 
-  .slide9-mosaic-container {
-    grid-template-columns: repeat(2, 1fr);
+  .team-grid-2x2 {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    gap: 14px !important;
+  }
+  .team-card-wide {
+    flex-direction: row !important;
+  }
+  .team-card-photo-box {
+    flex: 0 0 130px !important;
+    min-height: 110px !important;
+    padding: 6px !important;
+  }
+  .team-card-person-name {
+    font-size: 18px !important;
   }
 
   .slide6-center-orbit-system {

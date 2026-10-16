@@ -81,7 +81,7 @@ function renderMoyaInLifeCards() {
   const items = window.presentationConfig.moyaInLife;
   container.innerHTML = items.map(item => `
     <div class="slide4-card" data-series-id="${item.id}" data-details="${item.details || ''}">
-      <img src="${item.image}" alt="${item.title}" class="slide4-card-bg-visual" onerror="this.src='assets/logo-tanaffas-waai.svg'">
+      <img src="${item.image}" alt="${item.title}" class="slide4-card-bg-visual" onerror="this.src='assets/لوقو.png'">
       <div class="slide4-card-overlay"></div>
       <div class="slide4-card-content">
         <h3 class="slide4-card-title">${item.title}</h3>
@@ -215,11 +215,11 @@ function renderSponsors() {
 function setupImageFallbacks() {
   document.querySelectorAll('img').forEach(img => {
     img.addEventListener('error', function() {
-      // If image fails, replace with vector logo fallback or placeholder
+      // If image fails, replace with official logo fallback
       if (!this.dataset.triedFallback) {
         this.dataset.triedFallback = 'true';
-        if (this.src.includes('logo')) {
-          this.src = 'assets/logo-tanaffas-waai.svg';
+        if (this.src.includes('logo') || this.src.includes('%D9%84%D9%88%D9%82%D9%88') || this.src.includes('لوقو')) {
+          this.src = 'assets/logo.png';
         }
       }
     });

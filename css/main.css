@@ -156,6 +156,71 @@ body {
   pointer-events: none;
 }
 
+.nav-hud.user-hidden {
+  opacity: 0 !important;
+  transform: translate(-50%, 50px) scale(0.96) !important;
+  pointer-events: none !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease !important;
+}
+
+/* Floating Restore Button for HUD */
+.hud-restore-trigger {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%) translateY(70px);
+  z-index: var(--z-floating-hud);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  background: rgba(6, 47, 99, 0.9);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(24, 166, 183, 0.45);
+  border-radius: var(--radius-full);
+  box-shadow: 0 8px 26px rgba(1, 10, 22, 0.75), 0 0 16px rgba(24, 166, 183, 0.3);
+  color: var(--light-cyan);
+  font-family: var(--font-arabic);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.35s ease,
+              background 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+  user-select: none;
+}
+
+.hud-restore-trigger svg {
+  width: 17px;
+  height: 17px;
+  stroke: var(--cyan);
+  transition: transform 0.3s ease;
+}
+
+.hud-restore-trigger:hover {
+  background: rgba(14, 58, 114, 0.96);
+  border-color: var(--cyan);
+  color: #FFFFFF;
+  transform: translateX(-50%) translateY(0) scale(1.05);
+  box-shadow: 0 12px 32px rgba(1, 10, 22, 0.85), 0 0 24px rgba(24, 166, 183, 0.5);
+}
+
+.hud-restore-trigger:hover svg {
+  transform: scale(1.15);
+}
+
+/* State when HUD is hidden by user */
+body.hud-is-hidden .hud-restore-trigger {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* Slide Progress line: 01 ━━━━━━━ 14 */
 .nav-progress-wrapper {
   display: flex;
@@ -287,8 +352,12 @@ body {
 }
 
 .brand-hud-logo {
-  height: 28px;
-  width: auto;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(24, 166, 183, 0.35);
+  flex-shrink: 0;
 }
 
 .brand-hud-text {
