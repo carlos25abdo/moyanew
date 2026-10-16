@@ -1256,17 +1256,17 @@
    SLIDE 11: شركاء الأثر (Partners of Impact)
    ========================================================================== */
 #slide-11 .safe-area {
-  max-width: 1500px;
-  width: 90vw;
+  max-width: 1550px;
+  width: 92vw;
   text-align: center;
 }
 
 .slide11-sponsors-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 36px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
   width: 100%;
-  margin-top: 45px;
+  margin-top: 36px;
 }
 
 .slide11-sponsor-card {
@@ -1276,24 +1276,24 @@
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  padding: 48px 32px;
+  padding: 34px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 14px;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: var(--shadow-soft);
 }
 
 .slide11-sponsor-card:hover {
-  transform: translateY(-10px) scale(1.02);
+  transform: translateY(-8px) scale(1.02);
   border-color: var(--cyan);
   box-shadow: var(--glow-cyan);
 }
 
 .slide11-sponsor-logo-box {
-  height: 120px;
+  height: 105px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1301,16 +1301,23 @@
 }
 
 .slide11-sponsor-logo-box img, .slide11-sponsor-logo-box svg {
-  max-height: 100px;
-  max-width: 80%;
+  max-height: 90px;
+  max-width: 90%;
   object-fit: contain;
   filter: brightness(1.05);
 }
 
 .slide11-sponsor-name {
-  font-size: var(--text-h3);
+  font-size: clamp(18px, 1.4vw, 22px);
   font-weight: 800;
   color: var(--white);
+  line-height: 1.3;
+}
+
+.slide11-sponsor-type {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cyan);
 }
 
 .slide11-sponsor-badge {
@@ -1319,7 +1326,7 @@
   border: 1px solid rgba(24, 166, 183, 0.4);
   color: var(--light-cyan);
   font-size: var(--text-caption);
-  padding: 6px 18px;
+  padding: 5px 16px;
   border-radius: var(--radius-full);
 }
 

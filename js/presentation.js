@@ -206,6 +206,7 @@ function renderSponsors() {
         <img src="${s.logo}" alt="${s.name}" onerror="this.src='assets/sponsors/${s.id}.svg'">
       </div>
       <h3 class="slide11-sponsor-name">${s.name}</h3>
+      ${s.type ? `<div class="slide11-sponsor-type">${s.type}</div>` : ''}
       <span class="slide11-sponsor-badge">${s.tag}</span>
     </div>
   `).join('');

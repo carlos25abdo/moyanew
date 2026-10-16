@@ -4,7 +4,7 @@
  * Presentation Configuration File
  */
 
-const presentationConfig = {
+const presentationConfig = window.presentationConfig = {
   // تفاصيل الحدث والمؤتمر
   event: {
     title: "مؤتمر المويا مويا",
@@ -26,8 +26,24 @@ const presentationConfig = {
     partners: null
   },
 
-  // الرعاة المعتمدون حصريًا (ممنوع اختراع أسماء غير معتمدة)
+  // الرعاة المعتمدون حصريًا
   sponsors: [
+    {
+      id: "al-talea",
+      name: "شركة الطليعة",
+      englishName: "Al-Talea Technical Equipment",
+      type: "شريك التجهيزات التقنية",
+      logo: "assets/sponsors/al-talea.svg",
+      tag: "أحد رعاة المؤتمر"
+    },
+    {
+      id: "yafa-apartments",
+      name: "فندق يافا",
+      englishName: "Yafa Hotel",
+      type: "شريك الضيافة",
+      logo: "assets/sponsors/yafa-apartments.svg",
+      tag: "أحد رعاة المؤتمر"
+    },
     {
       id: "misurata-lab",
       name: "مختبر مصراتة المركزي",
@@ -37,19 +53,11 @@ const presentationConfig = {
       tag: "أحد رعاة المؤتمر"
     },
     {
-      id: "yafa-apartments",
-      name: "يافا للشقق الفندقية",
-      englishName: "Yafa Hotel Apartments",
-      type: "شريك الضيافة",
-      logo: "assets/sponsors/yafa-apartments.svg",
-      tag: "أحد رعاة المؤتمر"
-    },
-    {
-      id: "al-talea",
-      name: "شركة الطليعة للتجهيزات الفنية",
-      englishName: "Al-Talea Technical Equipment",
-      type: "شريك التجهيزات التقنية",
-      logo: "assets/sponsors/al-talea.svg",
+      id: "cultural-cafe",
+      name: "المقهى الثقافي",
+      englishName: "The Cultural Cafe",
+      type: "شريك ثقافي ومجتمعي",
+      logo: "assets/sponsors/cultural-cafe.svg",
       tag: "أحد رعاة المؤتمر"
     }
   ],
