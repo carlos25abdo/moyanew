@@ -342,3 +342,45 @@
     opacity: 0.3 !important;
   }
 }
+/* Slide 7: circular journey, following the supplied reference. */
+#slide-7 { background: #0c172b; }
+#slide-7 .safe-area { width: auto; max-width: none; justify-content: center; gap: 12px; }
+#slide-7 .slide-title-main { font-size: clamp(25px, 3.2vw, 44px); margin-bottom: 6px; }
+#slide-7 .slide-subtitle { font-size: clamp(13px, 1.4vw, 20px); }
+#slide-7 .slide7-timeline-track-wrap { margin: 0 !important; padding: 4px 0; overflow: visible; width: min(760px, 100%); }
+#slide-7 .slide7-timeline-line { display: none; }
+#slide-7 .slide7-milestones-row { min-width: 0; display: grid; direction: ltr; grid-template-columns: 1fr 42px 1fr; gap: 22px 8px; align-items: start; }
+#slide-7 .slide7-milestone-item { position: relative; direction: rtl; width: 100%; transition: none; }
+#slide-7 .slide7-milestone-item:nth-child(1) { grid-area: 1 / 1 / 2 / 4; }
+#slide-7 .slide7-milestone-item:nth-child(2) { grid-area: 2 / 3; }
+#slide-7 .slide7-milestone-item:nth-child(3) { grid-area: 2 / 1; }
+#slide-7 .slide7-milestone-item:nth-child(4) { grid-area: 3 / 3; }
+#slide-7 .slide7-milestone-item:nth-child(5) { grid-area: 3 / 1; }
+#slide-7 .slide7-milestone-item:nth-child(6) { grid-area: 4 / 1 / 5 / 4; }
+#slide-7 .slide7-milestone-card { box-sizing: border-box; width: clamp(82px, 12vh, 136px); height: clamp(82px, 12vh, 136px); padding: 10px !important; border-radius: 50%; border: 1.5px solid #8598b5; background: #26364f; box-shadow: none; backdrop-filter: none; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+#slide-7 .slide7-journey-icon { font-family: sans-serif; font-size: clamp(22px, 3.4vh, 36px); line-height: 1; color: #d5ebf4; }
+#slide-7 .slide7-milestone-title { font-size: clamp(13px, 1.8vh, 20px); font-weight: 600; line-height: 1.3; margin: 0; }
+#slide-7 .slide7-milestone-desc { font-size: clamp(11px, 1.5vh, 16px); line-height: 1.4; max-width: 310px; margin-top: 5px; color: #bdc9db; }
+#slide-7 .slide7-milestone-item:nth-child(2) .slide7-milestone-card { background: #2b466b; border-color: #8daed7; }
+#slide-7 .slide7-milestone-item:nth-child(3) .slide7-milestone-card { background: #3c3767; border-color: #b2a1ec; }
+#slide-7 .slide7-milestone-item:nth-child(4) .slide7-milestone-card { background: #533d69; border-color: #c995e2; }
+#slide-7 .slide7-milestone-item:nth-child(5) .slide7-milestone-card { background: #23565e; border-color: #83d1ce; }
+#slide-7 .slide7-milestone-item:nth-child(6) .slide7-milestone-card { width: clamp(104px, 15vh, 170px); height: clamp(104px, 15vh, 170px); background: #17616c; border: 2px solid #8be2e7; }
+#slide-7 .slide7-milestone-item::after { position: absolute; color: #849cb6; font: 26px/1 sans-serif; }
+#slide-7 .slide7-milestone-item:nth-child(1)::after,
+#slide-7 .slide7-milestone-item:nth-child(3)::after,
+#slide-7 .slide7-milestone-item:nth-child(5)::after { content: '↓'; bottom: -23px; }
+#slide-7 .slide7-milestone-item:nth-child(3)::after,
+#slide-7 .slide7-milestone-item:nth-child(5)::after { left: calc(100% + 8px); }
+#slide-7 .slide7-milestone-item:nth-child(2)::after,
+#slide-7 .slide7-milestone-item:nth-child(4)::after { content: '←'; right: calc(100% + 10px); top: 36px; }
+#slide-7 .slide7-journey-date { color: #8be2e7; font-size: 12px; margin-top: 3px; }
+@media (max-width: 600px) {
+  #slide-7 .safe-area { left: 6%; right: 6%; top: 9%; bottom: 6%; }
+  #slide-7 .slide7-milestones-row { column-gap: 2px; grid-template-columns: 1fr 24px 1fr; }
+  #slide-7 .slide7-milestone-desc { font-size: 11px !important; max-width: 220px; }
+  #slide-7 .slide7-milestone-item:nth-child(2)::after,
+  #slide-7 .slide7-milestone-item:nth-child(4)::after { right: calc(100% + 1px); }
+  #slide-7 .slide7-milestone-item:nth-child(3)::after,
+  #slide-7 .slide7-milestone-item:nth-child(5)::after { left: calc(100% + 1px); }
+}

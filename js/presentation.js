@@ -112,14 +112,15 @@ function renderJourneyMilestones() {
   if (!container || !window.presentationConfig?.journey) return;
 
   const milestones = window.presentationConfig.journey;
-  container.innerHTML = milestones.map(m => `
+  const icons = ['♡', '♧', '≡', '⌖', '✧', '♧'];
+  container.innerHTML = milestones.map((m, index) => `
     <div class="slide7-milestone-item">
       <div class="slide7-milestone-card">
-        <div class="slide7-milestone-num">محطة ${m.step} ${m.date ? '• ' + m.date : ''}</div>
+        <span class="slide7-journey-icon" aria-hidden="true">${icons[index]}</span>
         <div class="slide7-milestone-title">${m.title}</div>
-        <div class="slide7-milestone-desc">${m.desc}</div>
       </div>
-      <div class="slide7-milestone-dot"></div>
+      <div class="slide7-milestone-desc">${m.desc}</div>
+      ${m.date ? `<div class="slide7-journey-date">${m.date}</div>` : ''}
     </div>
   `).join('');
 }

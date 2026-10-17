@@ -66,35 +66,35 @@ const presentationConfig = window.presentationConfig = {
   journey: [
     {
       step: "01",
-      title: "الفكرة",
+      title: "قلق على شخص عزيز",
       desc: "بداية السؤال… لماذا لا يجد مريض المويا مويا العربي محتوى يشبه واقعه؟",
       date: "",
       image: "assets/journey/step-idea.svg"
     },
     {
       step: "02",
-      title: "تكوين الفرق",
+      title: "سؤال",
       desc: "التقاء الشغف الطبي والتصميمي والإنساني لصناعة فريق يؤمن بالأثر.",
       date: "",
       image: "assets/journey/step-team.svg"
     },
     {
       step: "03",
-      title: "المحتوى",
+      title: "رغبة",
       desc: "صياغة أول دليل عربي مبسّط وموجّه للإنسان قبل المرض.",
       date: "",
       image: "assets/journey/step-content.svg"
     },
     {
       step: "04",
-      title: "الأنشطة الميدانية",
+      title: "شغف",
       desc: "النزول إلى الأرض، والتواصل المباشر مع المجتمع والكوادر الطبية.",
       date: "",
       image: "assets/journey/step-field.svg"
     },
     {
       step: "05",
-      title: "مويا في الحياة",
+      title: "فكرة",
       desc: "إطلاق السلسلة الأكثر تأثيرًا التي تناولت المدرسة، السفر، والجامعة.",
       date: "",
       image: "assets/journey/step-life.svg"
